@@ -1,13 +1,164 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --txt-clr: #333;
+  --bg-clr: #ffd460;
+  --main-clr: #2d4059;
+  --red-clr: #ea5455;
+  --orange-clr: #f07b3f;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+body {
+  background-color: var(--main-clr);
+  color: var(--bg-clr);
+  font-family: "Raleway", sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.title {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+form > * {
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+input[type="text"] {
+  grid-column: 1/3;
+}
+
+.btn {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add {
+  background-color: var(--red-clr);
+  color: white;
+  grid-column: 1/2;
+}
+
+.add:hover {
+  background-color: #f57475;
+}
+
+select {
+  grid-column: 2/3;
+}
+
+.todoList {
+  width: 100%;
+}
+
+.todo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.todo > * {
+  padding: 5px 10px;
+  background-color: white;
+  color: var(--txt-clr);
+  font-weight: 700;
+  border-radius: 3px;
+}
+.todo li {
+  flex-basis: 83%;
+}
+
+.todo-btn {
+  flex-basis: 10%;
+  align-self: flex-start;
+  background-color: var(--bg-clr);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.todo span {
+  display: block;
+  color: grey;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.check {
+  background-color: #34be82;
+}
+
+.remove {
+  background-color: var(--red-clr);
+}
+
+.check:hover {
+  background-color: #22e18e;
+}
+
+.remove:hover {
+  background-color: #f57475;
+}
+
+.fa-check {
+  color: white;
+}
+
+.fa-trash-alt {
+  color: white;
+}
+
+@media (min-width: 500px) {
+  form {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  input[type="text"] {
+    grid-column: 1/4;
+  }
+  .add {
+    grid-column: 4/5;
+  }
+
+  select {
+    grid-column: 5/5;
+  }
 }
