@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({ inputText, setInputText, todos, setTodos }) => {
+const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
   const handleInputText = (e) => {
     setInputText(e.target.value);
   };
@@ -11,17 +11,24 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
     const dateAdded = `${newDate.getFullYear()}-${
       newDate.getMonth() + 1
     }-${newDate.getDate()} ${newDate.getHours()}:${newDate.getMinutes()}`;
-    setTodos([
-      ...todos,
-      {
-        text: inputText,
-        completed: false,
-        id: todos.length ? todos[todos.length - 1].id + 1 : 0,
-        date: dateAdded,
-      },
-    ]);
+    if (inputText) {
+      setTodos([
+        ...todos,
+        {
+          text: inputText,
+          completed: false,
+          id: todos.length ? todos[todos.length - 1].id + 1 : 0,
+          date: dateAdded,
+        },
+      ]);
+    }
 
     setInputText("");
+  };
+
+  const filteredTodos = (e) => {
+    setStatus(e.target.value);
+    console.log(e.target.value);
   };
 
   return (
@@ -33,7 +40,7 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
         className="btn add"
         onClick={handleSubmit}
       />
-      <select>
+      <select onChange={filteredTodos}>
         <option value="all">All</option>
         <option value="completed">Completed</option>
         <option value="uncompleted">Uncompleted</option>

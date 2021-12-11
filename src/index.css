@@ -76,7 +76,7 @@ input[type="text"] {
 }
 
 .add:hover {
-  background-color: #f57475;
+  background-color: #f53e3e;
 }
 
 select {
@@ -131,11 +131,11 @@ select {
 }
 
 .check:hover {
-  background-color: #22e18e;
+  background-color: #13a566;
 }
 
 .remove:hover {
-  background-color: #f57475;
+  background-color: #f53e3e;
 }
 
 .fa-check {
@@ -144,6 +144,11 @@ select {
 
 .fa-trash-alt {
   color: white;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: grey;
 }
 
 @media (min-width: 500px) {
