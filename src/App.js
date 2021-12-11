@@ -25,10 +25,12 @@ const App = () => {
           break;
       }
     };
-    const searchTodos = (search) => {
-      setFilteredTodos(todos.filter((item) => item.text.includes(search)));
-    };
-    searchTodos(search);
+    // const searchTodos = (search) => {
+    //   setFilteredTodos(
+    //     filteredTodos.filter((item) => item.text.includes(search))
+    //   );
+    // };
+    // searchTodos(search);
     filterTodos(status);
   }, [todos, status, search]);
 
@@ -55,6 +57,7 @@ const App = () => {
           todos={todos}
           setTodos={setTodos}
           filteredTodos={filteredTodos}
+          search={search}
         />
       )}
     </main>
