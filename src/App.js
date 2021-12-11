@@ -6,6 +6,7 @@ import NoTodos from "./components/NoTodos";
 
 const App = () => {
   const [inputText, setInputText] = useState("");
+  const [search, setSearch] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
@@ -24,8 +25,12 @@ const App = () => {
           break;
       }
     };
+    const searchTodos = (search) => {
+      setFilteredTodos(todos.filter((item) => item.text.includes(search)));
+    };
+    searchTodos(search);
     filterTodos(status);
-  }, [todos, status]);
+  }, [todos, status, search]);
 
   // Functions
 
@@ -40,6 +45,8 @@ const App = () => {
         todos={todos}
         setTodos={setTodos}
         setStatus={setStatus}
+        search={search}
+        setSearch={setSearch}
       />
       {todos.length === 0 ? (
         <NoTodos />

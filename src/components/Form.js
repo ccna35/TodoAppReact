@@ -1,6 +1,14 @@
 import React from "react";
 
-const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
+const Form = ({
+  inputText,
+  setInputText,
+  todos,
+  setTodos,
+  setStatus,
+  search,
+  setSearch,
+}) => {
   const handleInputText = (e) => {
     setInputText(e.target.value);
   };
@@ -28,12 +36,27 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
 
   const filteredTodos = (e) => {
     setStatus(e.target.value);
-    console.log(e.target.value);
+  };
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
   };
 
   return (
     <form className="form">
-      <input type="text" onChange={handleInputText} value={inputText} />
+      <input
+        type="text"
+        onChange={handleInputText}
+        value={inputText}
+        placeholder="Add a new todo..."
+        className="todoInput"
+      />
+      <input
+        type="text"
+        placeholder="Search"
+        className="searchInput"
+        onChange={handleSearch}
+      />
       <input
         type="submit"
         value="Add"

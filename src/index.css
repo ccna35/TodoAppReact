@@ -60,7 +60,8 @@ form > * {
   font-size: 1rem;
 }
 
-input[type="text"] {
+.todoInput,
+.searchInput {
   grid-column: 1/3;
 }
 
@@ -72,7 +73,7 @@ input[type="text"] {
 .add {
   background-color: var(--red-clr);
   color: white;
-  grid-column: 1/2;
+  grid-column: span 1;
 }
 
 .add:hover {
@@ -80,7 +81,7 @@ input[type="text"] {
 }
 
 select {
-  grid-column: 2/3;
+  grid-column: span 1;
 }
 
 .todoList {
@@ -169,14 +170,18 @@ select {
     grid-template-columns: repeat(5, 1fr);
   }
 
-  input[type="text"] {
-    grid-column: 1/4;
+  .todoInput {
+    grid-column: span 5;
+  }
+
+  .searchInput {
+    grid-column: span 3;
   }
   .add {
-    grid-column: 4/5;
+    grid-column: span 1;
   }
 
   select {
-    grid-column: 5/5;
+    grid-column: span 1;
   }
 }
