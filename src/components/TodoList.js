@@ -5,7 +5,9 @@ const TodoList = ({ todos, setTodos, filteredTodos, search }) => {
   return (
     <ul className="todoList">
       {filteredTodos
-        .filter((item) => item.text.includes(search))
+        .filter((item) =>
+          item.text.toLowerCase().includes(search.toLowerCase())
+        )
         .map((todo) => (
           <Todo todo={todo} key={todo.id} todos={todos} setTodos={setTodos} />
         ))}
