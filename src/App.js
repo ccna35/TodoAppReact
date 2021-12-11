@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
+import NoTodos from "./components/NoTodos";
 
 const App = () => {
   const [inputText, setInputText] = useState("");
@@ -40,11 +41,15 @@ const App = () => {
         setTodos={setTodos}
         setStatus={setStatus}
       />
-      <TodoList
-        todos={todos}
-        setTodos={setTodos}
-        filteredTodos={filteredTodos}
-      />
+      {todos.length === 0 ? (
+        <NoTodos />
+      ) : (
+        <TodoList
+          todos={todos}
+          setTodos={setTodos}
+          filteredTodos={filteredTodos}
+        />
+      )}
     </main>
   );
 };
