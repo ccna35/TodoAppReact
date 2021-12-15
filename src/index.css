@@ -63,6 +63,13 @@ form > * {
 .todoInput,
 .searchInput {
   grid-column: 1/3;
+  transition: all 0.3s;
+}
+
+.todoInput:focus,
+.searchInput:focus {
+  border: 2px solid var(--red-clr);
+  border-radius: 10px;
 }
 
 .btn {
@@ -123,7 +130,7 @@ select {
   margin-top: 1rem;
 }
 
-.check {
+.completed {
   background-color: #34be82;
 }
 
@@ -131,8 +138,16 @@ select {
   background-color: var(--red-clr);
 }
 
-.check:hover {
+.completed:hover {
   background-color: #13a566;
+}
+
+.uncompleted {
+  background-color: var(--bg-clr);
+}
+
+.uncompleted:hover {
+  background-color: #efbc31;
 }
 
 .remove:hover {
@@ -147,9 +162,15 @@ select {
   color: white;
 }
 
+.fa-square {
+  color: white;
+}
+
 .checked {
-  text-decoration: line-through;
-  color: grey;
+  /* text-decoration: line-through; */
+  /* color: grey; */
+  background-color: #c8c7cc;
+  transition: all 0.5s;
 }
 
 .noTodo {

@@ -17,13 +17,21 @@ const Todo = ({ todo, todos, setTodos }) => {
   };
   return (
     <div className="todo">
-      <li>
-        {<p className={`${todo.completed ? "checked" : ""}`}>{todo.text}</p>}
+      <li className={`${todo.completed ? "checked" : ""}`}>
+        {<p>{todo.text}</p>}
         {<span>{todo.date}</span>}
       </li>
-      <div className="todo-btn check" onClick={handleCheck}>
-        <i className="fas fa-check"></i>
-      </div>
+
+      {todo.completed ? (
+        <div className="todo-btn completed" onClick={handleCheck}>
+          <i className="fas fa-check"></i>
+        </div>
+      ) : (
+        <div className="todo-btn uncompleted" onClick={handleCheck}>
+          <i className="fas fa-square"></i>
+        </div>
+      )}
+
       <div className="todo-btn remove" onClick={handleDelete}>
         <i className="fas fa-trash-alt"></i>
       </div>

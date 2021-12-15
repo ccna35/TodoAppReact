@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 const Form = ({
   inputText,
@@ -9,6 +9,7 @@ const Form = ({
   search,
   setSearch,
 }) => {
+  const inputRef = useRef();
   const handleInputText = (e) => {
     setInputText(e.target.value);
   };
@@ -32,6 +33,7 @@ const Form = ({
     }
 
     setInputText("");
+    inputRef.current.focus();
   };
 
   const filteredTodos = (e) => {
@@ -50,6 +52,7 @@ const Form = ({
         value={inputText}
         placeholder="Add a new todo..."
         className="todoInput"
+        ref={inputRef}
       />
       <input
         type="text"
